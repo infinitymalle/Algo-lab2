@@ -16,13 +16,14 @@ def CreateData():
     #print("test", dataset)
     return dataset
 
-def incremental(list):      #fortfarande insertionsort
+def incremental(list):   # väldigt inte klar
     for i in range(len(list)):
         if (i <= 2):
             continue
         for j in range(2, 0, -1):
-            if i < j:
+            if list[i] > list[j]:
                 break
+            if list[i] < list[j] and pee poo# pee pooo
             list.insert(j, list[i])
             list.pop(i + 1)
 
