@@ -16,18 +16,37 @@ def CreateData():
     #print("test", dataset)
     return dataset
 
-def incremental(list):   # väldigt inte klar
+def incremental(list):          # väldigt inte klar
+    first3 = list[0:3] 
+    list.insert(0, insertionsort(list[0:3]))    #0 till men inte med 3
+
     for i in range(len(list)):
         if (i <= 2):
             continue
         for j in range(2, 0, -1):
             if list[i] > list[j]:
                 break
-            if list[i] < list[j] and pee poo# pee pooo
-            list.insert(j, list[i])
-            list.pop(i + 1)
+            elif list[i] < list[j]: #yea fixa nåttt här bra här :)
 
-        
+
+                list.insert(j, list[i])
+                list.pop(i + 1)
+    return(list)
+
+
+def insertionsort(list):
+    for i in range(len(list)):
+        flag = 0
+        j = i
+        while(j > 0):
+            j -= 1
+            if (list[i] > list[j]):
+                flag = 1
+                break
+        if (flag == 1):
+            j += 1
+        list.insert(j, list[i])
+        list.pop(i + 1)
         
     return(list)
 
