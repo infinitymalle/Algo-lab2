@@ -41,11 +41,15 @@ def sort(list):
 
 
 def divide(list):
-    if (len(list) == 3):
+    halv = len(list)/2
+    
+    if ((halv * 2)  == 3):
         return(sort(list))
-    list = divide(list[0:-1])
 
-    return(list[0:2])
+    Llist = divide(list[0:halv])
+    Rlist = divide(list[halv:-1])
+
+    return(list[0:3])
 
 
 #def incremental(list):          # väldigt inte klar
