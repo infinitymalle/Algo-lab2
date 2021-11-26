@@ -17,24 +17,23 @@ def CreateData():
     return dataset
 
 def incremental(list):          # väldigt inte klar
-    first3 = list[0:3] 
+    first3 = list[0:3]
     list.insert(0, insertionsort(list[0:3]))    #0 till men inte med 3
 
-    for i in range(len(list)):
-        if (i <= 2):
-            continue
+    for i in range(3, len(list)):
+        flag = 0
         for j in range(2, 0, -1):
             if list[i] > list[j]:
                 break
             elif list[i] < list[j]: #yea fixa nåttt här bra här :)
-
+                
 
                 list.insert(j, list[i])
                 list.pop(i + 1)
     return(list)
 
 
-def insertionsort(list):
+def insertionsort(list):                # gammla vanliga
     for i in range(len(list)):
         flag = 0
         j = i
