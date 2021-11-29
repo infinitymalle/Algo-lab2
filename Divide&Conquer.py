@@ -15,3 +15,19 @@ def CreateData():
         #else: dataset.append(i)
     #print("test", dataset)
     return dataset
+
+
+def divide(list):
+
+    halv = len(list)/2
+    
+    if ((halv * 2)  == 3):
+        return(sort(list))
+    else:
+        Llist = divide(list[0:halv])
+        Rlist = divide(list[halv:-1])
+
+    return(list[0:3])
+
+def sort(list):
+    return(list)
