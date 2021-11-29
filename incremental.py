@@ -20,7 +20,8 @@ def CreateData():
 def incremental(list):
     element = list[len(list) -1]
     if len(list) == 3:
-        return(sort(list))
+        #return(sort(list))                 #fixa sort
+        return(insertionsort(list))
 
     list = incremental(list[:-1])
 
@@ -34,22 +35,21 @@ def incremental(list):
             list.insert(2, element)
     return(list[0:3])
 
-def sort(list):
-
-
-
-
 
 def divide(list):
+
     halv = len(list)/2
     
     if ((halv * 2)  == 3):
         return(sort(list))
-
-    Llist = divide(list[0:halv])
-    Rlist = divide(list[halv:-1])
+    else:
+        Llist = divide(list[0:halv])
+        Rlist = divide(list[halv:-1])
 
     return(list[0:3])
+
+def sort(list):
+    return(list)
 
 
 #def incremental(list):          # väldigt inte klar
