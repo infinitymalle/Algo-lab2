@@ -68,21 +68,21 @@ def incremental(list):
 #    return(list)
 
 
-def insertionsort(list):                # gammla vanliga
-    for i in range(len(list)):
-        flag = 0
-        j = i
-        while(j > 0):
-            j -= 1
-            if (list[i] > list[j]):
-                flag = 1
-                break
-        if (flag == 1):
-            j += 1
-        list.insert(j, list[i])
-        list.pop(i + 1)
-        
-    return(list)
+#def insertionsort(list):                # gammla vanliga
+#    for i in range(len(list)):
+#        flag = 0
+#        j = i
+#        while(j > 0):
+#            j -= 1
+#            if (list[i] > list[j]):
+#                flag = 1
+#                break
+#        if (flag == 1):
+#            j += 1
+#        list.insert(j, list[i])
+#        list.pop(i + 1)
+#        
+#    return(list)
 
 def test():
     data = CreateData()
