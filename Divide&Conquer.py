@@ -7,23 +7,21 @@ import cProfile
 def CreateData():
     dataset = []
 
-    for i in range(3*2**2):
+    for i in range(3*2**5):
         dataset.append(random.randrange(0, 101))    # choose number between 0 and 50 at random
         #dataset.append(i)                          # fills the dataset with already sorted data
         # Creates an almost sorted dataset, every tenth loop the input will be randomized
         #if i % 10 == 0: dataset.append(random.randrange(0, 101))
         #else: dataset.append(i)
     #print("test", dataset)
-    print(len(dataset))
+    print(dataset)
     return dataset
 
 
 def divide(list):
-    print(len(list))
     halv = int(len(list)/2)
     if (len(list) == 3):
         temp = 0
-        print("beep")
         if list[0] > list[1]:
             temp = list[0]
             list[0] = list[1]
