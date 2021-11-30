@@ -40,13 +40,13 @@ def divide(list):
         Llist = divide(list[0:halv])
         Rlist = divide(list[halv:-1])
 
-    
+
     return(list[0:3])
 
 def test():
     data = CreateData()
     print(data)
-    data = incremental(data)
+    data = divide(data)
     print(data)
 
 test()
