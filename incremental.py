@@ -17,35 +17,35 @@ def CreateData():
     return dataset
 
 
-def incremental(list):
-    element = list[len(list) -1]
-    if len(list) == 3:
-        temp = 0
-        if list[0] > list[1]:
-            temp = list[0]
-            list[0] = list[1]
-            list[1] = temp
-        if list[0] > list[2]:
-            temp = list[0]
-            list[0] = list[2]
-            list[2] = temp
-        if list[1] > list[2]:
-            temp = list[1]
-            list[1] = list[2]
-            list[2] = temp
-        return(list)
-    
-    list = incremental(list[:-1])
+def incremental(lst):
+    if len(lst) == 3:
+        if lst[0] > lst[1]:
+            temp = lst[0]
+            lst[0] = lst[1]
+            lst[1] = temp
+        if lst[0] > lst[2]:
+            temp = lst[0]
+            lst[0] = lst[2]
+            lst[2] = temp
+        if lst[1] > lst[2]:
+            temp = lst[1]
+            lst[1] = lst[2]
+            lst[2] = temp
 
-    if (list[2] > element):                 
-        if (list[1] > element):
-            if (list[0] > element):
-                list.insert(0, element)
+        return(lst)
+    
+    element = lst[len(lst) -1]
+    lst = incremental(lst[:-1])
+    if lst[2] > element:                 
+        if lst[1] > element:
+            if lst[0] > element:
+                lst.insert(0, element)
             else:
-                list.insert(1, element)
+                lst.insert(1, element)
         else:
-            list.insert(2, element)
-    return(list[0:3])
+            lst.insert(2, element)
+
+    return lst[0:3]
 
 
 
