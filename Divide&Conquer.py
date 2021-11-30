@@ -18,51 +18,38 @@ def CreateData():
     return dataset
 
 
-def divide(list):
-    halv = int(len(list)/2)
-    if (len(list) == 3):
-        temp = 0
-        if list[0] > list[1]:
-            temp = list[0]
-            list[0] = list[1]
-            list[1] = temp
-        if list[0] > list[2]:
-            temp = list[0]
-            list[0] = list[2]
-            list[2] = temp
-        if list[1] > list[2]:
-            temp = list[1]
-            list[1] = list[2]
-            list[2] = temp
-        return(list)
-    else:
-        Llist = divide(list[0:halv])
-        Rlist = divide(list[halv:])
-    finalList = []
+def divide(lst):
+    half = len(lst) // 2
+    if len(lst) == 3:
+        if lst[0] > lst[1]:
+            temp = lst[0]
+            lst[0] = lst[1]
+            lst[1] = temp
+        if lst[0] > lst[2]:
+            temp = lst[0]
+            lst[0] = lst[2]
+            lst[2] = temp
+        if lst[1] > lst[2]:
+            temp = lst[1]
+            lst[1] = lst[2]
+            lst[2] = temp
+            
+        return(lst)
 
-    if Rlist[0] < Llist[0]:
-        finalList.append(Rlist[0])
-        Rlist.pop(0)
     else:
-        finalList.append(Llist[0])
-        Llist.pop(0)
+        Llst = divide(lst[0:half])
+        Rlst = divide(lst[half:])
 
-    if Rlist[0] < Llist[0]:
-        finalList.append(Rlist[0])
-        Rlist.pop(0)
-    else:
-        finalList.append(Llist[0])
-        Llist.pop(0)
+    finallst = []
+    for i in range(3):
+        if Rlst[0] < Llst[0]:
+            finallst.append(Rlst[0])
+            Rlst.pop(0)
+        else:
+            finallst.append(Llst[0])
+            Llst.pop(0)
 
-    if Rlist[0] < Llist[0]:
-        finalList.append(Rlist[0])
-        Rlist.pop(0)
-    else:
-        finalList.append(Llist[0])
-        Llist.pop(0)
-
-    print(finalList) 
-    return(finalList)
+    return(finallst)
 
 def test():
     data = CreateData()
