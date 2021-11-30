@@ -20,12 +20,24 @@ def CreateData():
 def incremental(list):
     element = list[len(list) -1]
     if len(list) == 3:
-        #return(sort(list))                 #fixa sort
-        return(insertionsort(list))
-
+        temp = 0
+        if list[0] > list[1]:
+            temp = list[0]
+            list[0] = list[1]
+            list[1] = temp
+        if list[0] > list[2]:
+            temp = list[0]
+            list[0] = list[2]
+            list[2] = temp
+        if list[1] > list[2]:
+            temp = list[1]
+            list[1] = list[2]
+            list[2] = temp
+        return(list)
+    
     list = incremental(list[:-1])
 
-    if (list[2] > element):
+    if (list[2] > element):                 
         if (list[1] > element):
             if (list[0] > element):
                 list.insert(0, element)
