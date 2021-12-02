@@ -18,6 +18,8 @@ def CreateData():
 
 def divide(lst):
     half = len(lst) // 2
+    # Base case, n == 3
+    # Sorts the remaining 3 elements and returns sorted list
     if len(lst) == 3:
         if lst[0] > lst[1]:
             temp = lst[0]
@@ -34,10 +36,13 @@ def divide(lst):
             
         return(lst)
 
+    # Recursive Divide and Conquer
     else:
         Llst = divide(lst[0:half])
         Rlst = divide(lst[half:])
-
+        
+    # Compare the smallest value from 2 sorted lists 3 times,
+    # Pop the smallest and put in new list for each loop which will then be returned
     finallst = []
     for i in range(3):
         if Rlst[0] < Llst[0]:
