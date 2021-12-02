@@ -2,33 +2,27 @@ import random
 import math
 import cProfile
 
-def CreateData():
-    dataset = []
-
-    for i in range(1000000):
-        dataset.append(random.randrange(0, 101))    # choose number between 0 and 50 at random
-        #dataset.append(i)                          # fills the dataset with already sorted data
-        # Creates an almost sorted dataset, every tenth loop the input will be randomized
-        #if i % 10 == 0: dataset.append(random.randrange(0, 101))
-        #else: dataset.append(i)
-    #print("test", dataset)
-    return dataset
-
 def f(Left, Right, A):
 
     if Left == Right: return (A[Left], A[Left], A[Left], A[Left])
  
     mid = (Left + Right) // 2
      
+    # Lmax = biggest possible subarray, Lstart = must include leftmost element, Lend = must include rightmost element, Lsum = the sum of all elements
     (Lmax, Lstart, Lend, Lsum) = f(Left, mid, A)    
+    # Rmax = biggest possible subarray, Rstart = must include leftmost element, Rend = must include rightmost element, Rsum = the sum of all elements
     (Rmax, Rstart, Rend, Rsum) = f(mid+1, Right, A)
 
+    # The leftmost element must be included when combining Left and Right
     Astart = max(Lstart, Lsum+Rstart, Lsum+Rsum)
 
+    # The rightmost element must be included when combining Left and Right
     Aend = max(Rend, Rsum+Lend, Lsum+Rsum)
 
+    # The sum of Left and Right
     Asum = Lsum+Rsum
     
+    # The maximum sum of a subarray created when combining Left and Right. 
     Amax = max(Astart, Aend, Asum, Lmax, Rmax, Lend+Rstart)
 
     return (Amax, Astart, Aend, Asum)
