@@ -1,5 +1,3 @@
-#peep peep poop poop
-
 import random
 import math
 import cProfile

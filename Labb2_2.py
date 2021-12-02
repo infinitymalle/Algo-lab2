@@ -1,5 +1,3 @@
-#Peep peep poop poop
-
 import random
 import math
 import cProfile
@@ -16,14 +14,14 @@ def CreateData():
     #print("test", dataset)
     return dataset
 
-def f(l, r, A):
+def f(Left, Right, A):
 
-    if l == r: return (A[l], A[l], A[l], A[l])
+    if Left == Right: return (A[Left], A[Left], A[Left], A[Left])
  
-    mid = (l + r) // 2
+    mid = (Left + Right) // 2
      
-    (Lmax, Lstart, Lend, Lsum) = f(l, mid, A)    
-    (Rmax, Rstart, Rend, Rsum) = f(mid+1, r, A)
+    (Lmax, Lstart, Lend, Lsum) = f(Left, mid, A)    
+    (Rmax, Rstart, Rend, Rsum) = f(mid+1, Right, A)
 
     Astart = max(Lstart, Lsum+Rstart, Lsum+Rsum)
 
