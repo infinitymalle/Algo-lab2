@@ -16,7 +16,7 @@ def CreateData():
 
 
 def incremental(lst):
-    if len(lst) == 3:
+    if len(lst) == 3:           #basfall -->vanlig bubbelsort
         if lst[0] > lst[1]:
             temp = lst[0]
             lst[0] = lst[1]
@@ -34,7 +34,7 @@ def incremental(lst):
     
     element = lst[len(lst) -1]
     lst = incremental(lst[:-1])
-    if lst[2] > element:                 
+    if lst[2] > element:                 #enkel jämförelse, placerar elementen på rätt plats
         if lst[1] > element:
             if lst[0] > element:
                 lst.insert(0, element)
@@ -43,7 +43,7 @@ def incremental(lst):
         else:
             lst.insert(2, element)
 
-    return lst[0:3]
+    return lst[0:3] #returnerar endast de tre första eftersom det fjärde är större
 
 
 
